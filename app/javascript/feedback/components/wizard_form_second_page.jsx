@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
+import { createFeedback } from '../actions';
 
-const WizardFormSecondPage = props => {
-  const { handleSubmit, pristine, previousPage, submitting } = props;
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Message</label>
+class WizardFormSecondPage extends Component {
+  onSubmit = (values) => {
+    this.props.createFeedback(values);
+  }
+
+  render() {
+  const { handleSubmit, pristine, previousPage, submitting } = this.props;
+    return (
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <div>
-          <Field name="notes" component="textarea" placeholder="Your text goes here..." />
+          <label>Message</label>
+          <div>
+            <Field name="messages" component="textarea" placeholder="Your text goes here..." />
+          </div>
         </div>
-      </div>
-      <div>
-        <button type="button" className="previous" onClick={previousPage}>
-          Previous
-        </button>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
-      </div>
-    </form>
-  );
+        <div>
+          <button type="button" className="previous" onClick={previousPage}>
+            Previous
+          </button>
+          <button type="submit" disabled={pristine || submitting} >Submit</button>
+        </div>
+      </form>
+    );
+  }
 };
+
+
 export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(WizardFormSecondPage);
+})(connect(null, { createFeedback })(WizardFormSecondPage));

@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import WizardFormFirstPage from './wizard_form_first_page';
-// import WizardFormSecondPage from './wizard_form_second_page';
-import WizardFormSecondPage from './wizard_form_second_page';
+import WizardFormFirstPage from '../components/wizard_form_first_page';
+import WizardFormSecondPage from '../components/wizard_form_second_page';
+
 
 class WizardForm extends Component {
   constructor(props) {
     super(props);
-    this.nextPage = this.nextPage.bind(this);
-    this.previousPage = this.previousPage.bind(this);
     this.state = {
       page: 1,
     };
   }
 
-  nextPage() {
+  nextPage = () => {
     this.setState({ page: this.state.page + 1 });
   }
 
-  previousPage() {
+  previousPage = () => {
     this.setState({ page: this.state.page - 1 });
   }
 
@@ -42,5 +41,5 @@ WizardForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default WizardForm;
+export default WizardForm
 

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :feedback, only: [:index, :create, :show]
+      get "feedback", to: 'feedbacks#index'
+      post "feedback", to: 'feedbacks#create'
+      patch "feedback", to: 'feedbacks#update'
+      get "feedback/:id", to: 'feedbacks#show'
     end
   end
 

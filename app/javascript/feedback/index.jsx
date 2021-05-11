@@ -7,6 +7,7 @@ import { reducer as reduxFormReducer } from 'redux-form';
 import reduxPromise from 'redux-promise';
 import { logger } from 'redux-logger';
 
+
 // internal modules
 import WizardForm from './components/wizard_form';
 import showResults from "./showResults";
@@ -14,7 +15,7 @@ import showResults from "./showResults";
 
 // State and reducers
 const reducers = combineReducers({
-  form: reduxFormReducer
+  form: reduxFormReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

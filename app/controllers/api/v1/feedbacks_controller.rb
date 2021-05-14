@@ -7,7 +7,7 @@ class Api::V1::FeedbacksController < ApplicationController
     elsif params[:p].present? && params[:n].present?
       select_messages(params[:p], params[:n])
     else
-      @messages = Message.order("created_at DESC")[0...10]
+      @messages = Message.order("created_at DESC").last(10)
     end
     render json: [@infos, @messages]
   end

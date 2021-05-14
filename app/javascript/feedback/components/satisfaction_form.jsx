@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import WizardFormFirstPage from '../components/wizard_form_first_page';
-import WizardFormSecondPage from '../components/wizard_form_second_page';
+import SatisfactionFormFirstPage from '../components/satisfaction_form_first_page';
+import SatisfactionFormSecondPage from '../components/satisfaction_form_second_page';
 
 
-class WizardForm extends Component {
+class SatisfactionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,9 +26,9 @@ class WizardForm extends Component {
     const { page } = this.state;
     return (
       <div>
-        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
+        {page === 1 && <SatisfactionFormFirstPage onSubmit={this.nextPage} />}
         {page === 2 &&
-          <WizardFormSecondPage
+          <SatisfactionFormSecondPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />}
@@ -37,9 +37,9 @@ class WizardForm extends Component {
   }
 }
 
-WizardForm.propTypes = {
+SatisfactionForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default WizardForm
+export default SatisfactionForm
 

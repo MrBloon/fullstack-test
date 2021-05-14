@@ -9,9 +9,7 @@ import { logger } from 'redux-logger';
 import Modal from 'react-modal';
 
 // internal modules
-import WizardForm from './components/wizard_form';
-import showResults from "./showResults";
-// import '../assets/stylesheets/application.scss';
+import SatisfactionForm from './components/satisfaction_form';
 
 // State and reducers
 const reducers = combineReducers({
@@ -31,7 +29,7 @@ ReactDOM.render(
           <div className="col-12 col-lg-8">
             <div className="form">
               <h1 style={{textAlign: "center"}}>We link satisfaction form</h1>
-              <WizardForm onSubmit={showResults} />
+              <SatisfactionForm onSubmit />
             </div>
           </div>
         </div>

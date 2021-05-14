@@ -6,7 +6,7 @@ import { createFeedback } from '../actions';
 import Modal from 'react-modal';
 import renderField from './render_field';
 
-class WizardFormSecondPage extends Component {
+class SatisfactionFormSecondPage extends Component {
   constructor () {
     super();
     this.state = {
@@ -65,8 +65,8 @@ class WizardFormSecondPage extends Component {
 
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'satisfaction', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(connect(null, { createFeedback })(WizardFormSecondPage));
+})(connect(null, { createFeedback })(SatisfactionFormSecondPage));

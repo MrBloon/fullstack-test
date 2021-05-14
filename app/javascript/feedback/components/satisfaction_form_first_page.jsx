@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './render_field';
 
-const WizardFormFirstPage = props => {
+const SatisfactionFormFirstPage = props => {
   const { handleSubmit } = props;
   return (
     <div>
@@ -39,8 +39,8 @@ const WizardFormFirstPage = props => {
 };
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'satisfaction', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(WizardFormFirstPage);
+})(SatisfactionFormFirstPage);

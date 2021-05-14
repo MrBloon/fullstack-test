@@ -10,24 +10,28 @@ const WizardFormFirstPage = props => {
       <h2>Infos</h2>
       <form onSubmit={handleSubmit}>
         <Field
+          className="form-control"
           name="firstName"
           type="text"
           component={renderField}
           label="First Name"
         />
         <Field
+          className="form-control"
           name="lastName"
           type="text"
           component={renderField}
           label="Last Name"
         />
-        <Field name="email"
-               type="email"
-               component={renderField}
-               label="Email"
+        <Field
+          className="form-control"
+          name="email"
+          type="email"
+          component={renderField}
+          label="Email"
         />
         <div>
-          <button type="submit" className="next">Next</button>
+          <button type="submit" className="btn btn-outline-primary next">Next</button>
         </div>
       </form>
     </div>

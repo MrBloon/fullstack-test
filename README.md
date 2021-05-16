@@ -2,4 +2,6 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 
 Run yarn install and bundle install for dependencies
+Run rails db:migrate to set up database
+
 Run rails s to launch server
